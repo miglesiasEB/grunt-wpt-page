@@ -32,6 +32,7 @@
             labels: {
                 responseTime: {
                     median: {
+                        SpeedIndex: 'Speed Index',
                         domContentLoadedEventStart: 'DOM Content Ready Start',
                         domContentLoadedEventEnd: 'DOM Content Ready End',
                         loadTime: 'Document Complete',
@@ -40,6 +41,7 @@
                         fullyLoaded: 'Fully Loaded'
                     },
                     average: {
+                        SpeedIndex: 'Speed Index',
                         loadTime: 'Document Complete',
                         fullyLoaded: 'Fully Loaded'
                     }
@@ -88,7 +90,7 @@
                 return this.urls[this.url];
             },
             allTestIds: function(){
-                return _.chain(this.urls).map(function(val, key){ 
+                return _.chain(this.urls).map(function(val, key){
                     return val;
                 }).flatten().value();
             }
