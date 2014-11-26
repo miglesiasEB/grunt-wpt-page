@@ -8,57 +8,64 @@
 <body data-spy="scroll" data-target=".nav-graph">
 
     <div class="container">
-        <nav class="navbar navbar-default" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Grunt WebPageTest</a>
-            </div>
-        </nav>
-    </div>
-
-    <div id="app" class="container">
-        <div class="row">
-            <div class="col-md-2 sidebar" >
-                <div data-spy="affix" data-offset-top="60" class="nav-graph">
-                    <h2>Location</h2>
-                    <select id="locations" class="form-control" v-model="location" >
-                        <option v-repeat="locations" value="{{$key}}" >{{$value}}</option>
-                    </select>
-
-                    <h2>URL</h2>
-                    <select id="urls" class="form-control" v-model="url" >
-                        <option v-repeat="urls" value="{{$key}}" >{{$key}}</option>
-                    </select>
-
-                    <h2>Results</h2>
-                    <ul class="nav nav-pills nav-stacked">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+           <div class="container">
+               <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Grunt WebPageTest</a>
+                </div>
+                <div class="pull-right" style="padding-top: 5px;">
+                    <ul class="nav nav-pills">
                         <li><a href="#responseTime">Response Time</a></li>
                         <li><a href="#contentsSize">Contents Size</a></li>
                         <li><a href="#contentsRequests">Contents Requests</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-10">
+        </nav>
+    </div>
 
+    <div id="app" class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>URL</h2>
+                <select id="urls" class="form-control" v-model="url" >
+                    <option v-repeat="urls" value="{{$key}}" >{{$key}}</option>
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <h2>Location</h2>
+                <select id="locations" class="form-control" v-model="location" >
+                    <option v-repeat="locations" value="{{$key}}" >{{$value}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 <h2 id="responseTime" >Response Time</h2>
-                <h3>FirstView</h3>
-                <h4>Average</h4>
-                <div id="firstAverage" class="graphs"></div>
-                <div id="firstAverageLegend" class="legend"></div>
+                <div class="col-md-6">
+                    <h3>FirstView</h3>
+                    <h4>Average</h4>
+                    <div id="firstAverage" class="graphs"></div>
+                    <div id="firstAverageLegend" class="legend"></div>
 
-                <h4>Median</h4>
-                <div id="firstMedian" class="graphs"></div>
-                <div id="firstMedianLegend" class="legend"></div>
+                    <h4>Median</h4>
+                    <div id="firstMedian" class="graphs"></div>
+                    <div id="firstMedianLegend" class="legend"></div>
+                </div>
+                <div class="col-md-6">
+                    <h3>RepeatView</h3>
+                    <h4>Average</h4>
+                    <div id="repeatAverage" class="graphs"></div>
+                    <div id="repeatAverageLegend" class="legend"></div>
 
-                <h3>RepeatView</h3>
-                <h4>Average</h4>
-                <div id="repeatAverage" class="graphs"></div>
-                <div id="repeatAverageLegend" class="legend"></div>
-
-                <h4>Median</h4>
-                <div id="repeatMedian" class="graphs"></div>
-                <div id="repeatMedianLegend" class="legend"></div>
-
+                    <h4>Median</h4>
+                    <div id="repeatMedian" class="graphs"></div>
+                    <div id="repeatMedianLegend" class="legend"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <h3>Detail</h3>
                 <h4>Average</h4>
                 <table class="table table-striped table-bordered">
@@ -107,17 +114,21 @@
                         </tr>
                     </tbody>
                 </table>
-
-
+            </div>
+            <div class="col-md-12">
                 <h2 id="contentsSize" >Contents Size</h2>
-                <h3>FirstView</h3>
-                <div id="firstContentsSize" class="graphs"></div>
-                <div id="firstContentsSizeLegend" class="legend"></div>
-
-                <h3>RepeatView</h3>
-                <div id="repeatContentsSize" class="graphs"></div>
-                <div id="repeatContentsSizeLegend" class="legend"></div>
-
+                <div class="col-md-6">
+                    <h3>FirstView</h3>
+                    <div id="firstContentsSize" class="graphs"></div>
+                    <div id="firstContentsSizeLegend" class="legend"></div>
+                </div>
+                <div class="col-md-6">
+                    <h3>RepeatView</h3>
+                    <div id="repeatContentsSize" class="graphs"></div>
+                    <div id="repeatContentsSizeLegend" class="legend"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <h3>Detail</h3>
                 <table class="table table-striped table-bordered">
                     <thead>
@@ -145,16 +156,21 @@
                          </tr>
                     </tbody>
                 </table>
-
+            </div>
+            <div class="col-md-12">
                 <h2 id="contentsRequests" >Contents Requests</h2>
-                <h3>FirstView</h3>
-                <div id="firstContentsRequests" class="graphs"></div>
-                <div id="firstContentsRequestsLegend" class="legend"></div>
-
-                <h3>RepeatView</h3>
-                <div id="repeatContentsRequests" class="graphs"></div>
-                <div id="repeatContentsRequestsLegend" class="legend"></div>
-
+                <div class="col-md-6">
+                    <h3>FirstView</h3>
+                    <div id="firstContentsRequests" class="graphs"></div>
+                    <div id="firstContentsRequestsLegend" class="legend"></div>
+                </div>
+                <div class="col-md-6">
+                    <h3>RepeatView</h3>
+                    <div id="repeatContentsRequests" class="graphs"></div>
+                    <div id="repeatContentsRequestsLegend" class="legend"></div>
+                </div>
+            </div>
+            <div class="col-md-12">
                 <h3>Detail</h3>
                 <table class="table table-striped table-bordered">
                     <thead>
@@ -182,7 +198,6 @@
                          </tr>
                     </tbody>
                 </table>
-
             </div>
         </div>
     </div>
